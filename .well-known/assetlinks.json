@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "club.setia.champ.android.dev",
+      "sha256_cert_fingerprints": [
+        "BE:7F:B0:4A:9D:88:3E:CF:F3:11:73:62:B7:52:09:61:1E:21:6E:A3:9C:51:4E:2B:D8:9F:7A:E1:C5:64:07:9D",
+        "A5:4D:13:3E:02:5A:5F:EF:FF:C9:D8:AC:8B:0A:E0:D9:A7:37:A2:99:1F:22:15:B1:93:AD:34:BC:72:07:78:CC"
+      ]
+    }
+  }
+]
