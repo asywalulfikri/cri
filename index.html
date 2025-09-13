@@ -1,27 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Open CRI App</title>
-</head>
-<body>
-  <h1>Open CRI App</h1>
-  <p>Click the button below to open the app:</p>
-  <button onclick="openApp()">Open App</button>
-
   <script>
     function openApp() {
-      var appUrl = "club.setia.champ.android.dev://cri";
-      var playStoreUrl = "https://play.google.com/store/apps/details?id=club.setia.champ.android.dev";
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      var now = Date.now();
 
-      // coba buka app
-      window.location = appUrl;
+      // URL App
+      var androidAppUrl = "club.setia.champ.android.dev://cri";
+      var androidStoreUrl = "https://play.google.com/store/apps/details?id=club.setia.champ.android";
 
-      // fallback
-      setTimeout(function() {
-        window.location = playStoreUrl;
-      }, 1500);
+      var iosAppUrl = "cri://cri"; // ganti dengan scheme iOS kamu
+      var iosStoreUrl = "https://apps.apple.com/app/id123456789"; // ganti dengan App Store ID
+
+      // Deteksi Android
+      if (/android/i.test(userAgent)) {
+        window.location = androidAppUrl;
+        setTimeout(function () {
+          if (Date.now() - now < 1500) {
+            window.location = androidStoreUrl;
+          }
+        }, 1000);
+      }
+      // Deteksi iOS
+      else if (/iPhone|iPad|iPod/i.test(userAgent)) {
+        window.location = iosAppUrl;
+        setTimeout(function () {
+          if (Date.now() - now < 1500) {
+            window.location = iosStoreUrl;
+          }
+        }, 1000);
+      }
+      // Jika desktop atau lainnya
+      else {
+        document.body.innerHTML = "<h2>Please open this link from your mobile device.</h2>";
+      }
     }
   </script>
+</head>
+<body onload="openApp()">
+  <h1>Opening CRI App...</h1>
 </body>
 </html>
